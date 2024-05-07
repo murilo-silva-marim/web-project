@@ -50,9 +50,7 @@ jobs:
         with:
           ref: ${{ github.run_number }}
       - run: |
-          ls
-          unzip my-artifact.zip
-          cd my-artifact
+          cd testing_in_flask
       - uses: akhileshns/heroku-deploy@v3.13.15 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
