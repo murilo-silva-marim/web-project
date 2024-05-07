@@ -18,7 +18,8 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip' # caching pip dependencies
-      - run: |
+      - name: Build, Test and Zip Application
+        run: |
           pip install -r requirements.txt
           pytest
           zip -r my-artifact.zip .
@@ -44,6 +45,7 @@ jobs:
           asset_content_type: application/zip
   deploy:
     runs-on: ubuntu-latest
+    environment: Deployment
     steps:
       - uses: actions/checkout@v4
         with:
